@@ -3,6 +3,8 @@ import array
 import ctypes
 import numpy
 
+# need to check whether optimization attempts helpful
+from cine_profiler import print_time
 
 _cine_median = ctypes.cdll.LoadLibrary("./libcine_median.so")
 BytePtr = ctypes.POINTER(ctypes.c_ubyte)
@@ -11,6 +13,7 @@ _cine_median.image_size.restype = ctypes.c_int32
 _cine_median.image_width.restype = ctypes.c_int32
 _cine_median.image_height.restype = ctypes.c_int32
 _cine_median.restricted_video_median.restype = BytePtr
+_cine_median.read_frame_interop.restype = BytePtr
 
 
 class Histogram:
@@ -45,53 +48,54 @@ class Histogram:
 class Cine:
     # represents a .cine file
 
-    ENDIAN = "little"
+    ENDIAN: str = "little"
 
     def __init__(self, filename):
 
-        self.filename = filename
+        self.filename: str = filename
         self.handle = open(filename, "rb")
-        self.image_count = self.__image_count()
-        self.image_width = self.__get_image_width()
-        self.image_height = self.__get_image_height()
-        self.image_size = self.__get_image_size()
+        self.image_count: int = self.__image_count()
+        self.image_width: int = self.__get_image_width()
+        self.image_height: int = self.__get_image_height()
+        self.image_size: int = self.__get_image_size()
         self.__image_offsets = self.__get_image_offsets()
         self.__to = self.__to_images_offset()
 
-    def __image_count(self):
+    def __image_count(self) -> int:
 
         self.handle.seek(0x14)
-        mybytes = self.handle.read(4)
+        mybytes: bytes = self.handle.read(4)
         return int.from_bytes(mybytes, self.ENDIAN, signed=False)
 
-    def __to_images_offset(self):
+    def __to_images_offset(self) -> int:
         self.handle.seek(0x20)
         mybytes = self.handle.read(4)
         return int.from_bytes(mybytes, self.ENDIAN, signed=False)
 
-    def __get_image_offsets(self):
+    def __get_image_offsets(self) -> array.array:
         to = self.__to_images_offset()
         self.handle.seek(to)
         offsets = array.array('Q')
         offsets.fromfile(self.handle, self.image_count)
         return offsets
 
-    def __get_image_width(self):
+    def __get_image_width(self) -> int:
         self.handle.seek(0x30)
         mybytes = self.handle.read(4)
         return int.from_bytes(mybytes, self.ENDIAN, signed=True)
 
-    def __get_image_height(self):
+    def __get_image_height(self) -> int:
         self.handle.seek(0x34)
         mybytes = self.handle.read(4)
         return int.from_bytes(mybytes, self.ENDIAN, signed=False)
 
-    def __get_image_size(self):
+    def __get_image_size(self) -> int:
         self.handle.seek(0x40)
         mybytes = self.handle.read(4)
         return int.from_bytes(mybytes, self.ENDIAN, signed=False)
 
-    def __get_ith_bytes(self, i):
+    @print_time
+    def __get_ith_bytes(self, i) -> array.array:
         offset = self.__image_offsets[i]
         self.handle.seek(offset)
         annote_sz_bytes = self.handle.read(4)
@@ -102,8 +106,16 @@ class Cine:
         mybytes.fromfile(self.handle, self.image_size)
         return mybytes
 
-    def __get_ith_image(self, i):
-        mybytes = self.__get_ith_bytes(i)
+    @print_time
+    def __get_ith_bytes_Rust(self, i) -> array.array:
+        fd = self.get_fileno()
+        offset = self.__image_offsets[i]
+        bptr = _cine_median.read_frame_interop(fd, offset)
+        data = bptr[:self.image_size]
+        return data
+
+    def __get_ith_image(self, i) -> numpy.ndarray:
+        mybytes = self.__get_ith_bytes_Rust(i)
         data = numpy.array(mybytes, dtype=numpy.uint8)
         shape = (self.image_height, self.image_width)
         shaped = numpy.reshape(data, shape)
@@ -117,7 +129,7 @@ class Cine:
     def close(self):
         self.handle.close()
 
-    def get_fileno(self):
+    def get_fileno(self) -> int:
         return self.handle.fileno()
 
     def get_ith_image(self, i):
@@ -125,7 +137,7 @@ class Cine:
             raise ValueError("image index out of range")
         return self.__get_ith_image(i)
 
-    def get_video_median_slow(self):
+    def get_video_median_slow(self) -> numpy.ndarray:
         z = self.get_ith_image(0)
         shape = z.shape
         histograms = numpy.ndarray(shape=shape, dtype=Histogram)
@@ -144,7 +156,7 @@ class Cine:
                 out[row, col] = val
         return out
 
-    def get_video_median(self):
+    def get_video_median(self) -> numpy.ndarray:
         fd = self.get_fileno()
         mybytes = _cine_median.video_median(fd)
         imsize = self.image_size
@@ -154,7 +166,7 @@ class Cine:
         frame = numpy.flip(frame, 0)
         return frame
 
-    def get_restricted_video_median(self, start_frame: int, count: int):
+    def get_restricted_video_median(self, start_frame: int, count: int) -> numpy.ndarray:
         fd = self.get_fileno()
         if start_frame >= self.image_count or start_frame+count >= self.image_count:
             ertxt = f"frames go OOB: {start_frame}:{start_frame+count}"
@@ -172,14 +184,23 @@ class Cine:
         return frame
 
 
-if __name__ == '__main__':
+def test_main():
 
     from skimage.io import imshow
     from matplotlib import pyplot
 
     exfile = "data/moth23_2022-02-15_Cine1.cine"
     cin = Cine(exfile)
+    import time
+    t0 = time.time()
     median_img = cin.get_video_median()
+    t1 = time.time()
+    print(t1 - t0)
 
     imshow(median_img)
     pyplot.show()
+    cin.close()
+
+
+if __name__ == '__main__':
+    test_main()

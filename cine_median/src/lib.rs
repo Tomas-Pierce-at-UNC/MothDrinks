@@ -34,6 +34,29 @@ fn read_frame(source: &mut fs::File, dest: &mut [u8], origin_offset: u64) -> io:
 }
 
 #[no_mangle]
+pub unsafe extern "C" fn read_frame_interop(fd: i32, offset: u64) -> *const u8 {
+    let mut file = fs::File::from_raw_fd(fd);
+    let headers = match VideoHeaders::new(&mut file) {
+        Some(h) => h,
+        None => {return ptr::null();}
+    };
+    let image_size = headers.image_size();
+    let mut arena :Vec<u8> = vec![0u8;image_size];
+    match read_frame(&mut file, &mut arena, offset) {
+        Ok(()) => {
+            arena.shrink_to_fit();
+            let ptr = arena.as_ptr();
+            mem::forget(file);
+            mem::forget(arena);
+            ptr
+        },
+        Err(_) => {
+            ptr::null()
+        }
+    }
+}
+
+#[no_mangle]
 pub unsafe extern "C" fn restricted_video_median(
     fd: i32,
     start_index: usize,
