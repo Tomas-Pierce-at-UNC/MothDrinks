@@ -14,6 +14,7 @@ _cine_median.image_width.restype = ctypes.c_int32
 _cine_median.image_height.restype = ctypes.c_int32
 _cine_median.restricted_video_median.restype = BytePtr
 _cine_median.read_frame_interop.restype = BytePtr
+_cine_median.image_count.restype = ctypes.c_uint32
 
 
 class Histogram:
@@ -62,10 +63,10 @@ class Cine:
         self.__to = self.__to_images_offset()
 
     def __image_count(self) -> int:
-
-        self.handle.seek(0x14)
-        mybytes: bytes = self.handle.read(4)
-        return int.from_bytes(mybytes, self.ENDIAN, signed=False)
+        fn = self.handle.fileno()
+        fnmbr = ctypes.c_uint32(fn)
+        count = _cine_median.image_count(fnmbr)
+        return count
 
     def __to_images_offset(self) -> int:
         self.handle.seek(0x20)
@@ -94,7 +95,6 @@ class Cine:
         mybytes = self.handle.read(4)
         return int.from_bytes(mybytes, self.ENDIAN, signed=False)
 
-    @print_time
     def __get_ith_bytes(self, i) -> array.array:
         offset = self.__image_offsets[i]
         self.handle.seek(offset)
@@ -106,7 +106,6 @@ class Cine:
         mybytes.fromfile(self.handle, self.image_size)
         return mybytes
 
-    @print_time
     def __get_ith_bytes_Rust(self, i) -> array.array:
         fd = self.get_fileno()
         offset = self.__image_offsets[i]
@@ -130,31 +129,14 @@ class Cine:
         self.handle.close()
 
     def get_fileno(self) -> int:
+        self.handle.close()
+        self.handle = open(self.filename, "rb")
         return self.handle.fileno()
 
     def get_ith_image(self, i):
         if i < 0 or i >= self.image_count:
             raise ValueError("image index out of range")
         return self.__get_ith_image(i)
-
-    def get_video_median_slow(self) -> numpy.ndarray:
-        z = self.get_ith_image(0)
-        shape = z.shape
-        histograms = numpy.ndarray(shape=shape, dtype=Histogram)
-        for i in range(len(histograms)):
-            for j in range(len(histograms[0])):
-                histograms[i, j] = Histogram(0, 255)
-        for i in range(self.image_count):
-            img = self.get_ith_image(i)
-            for row, vec in enumerate(img):
-                for col, val in enumerate(vec):
-                    histograms[row, col].add(val)
-        out = numpy.ndarray(shape=shape, dtype=z.dtype)
-        for row, vec in enumerate(histograms):
-            for col, hist in enumerate(vec):
-                val = hist.median()
-                out[row, col] = val
-        return out
 
     def get_video_median(self) -> numpy.ndarray:
         fd = self.get_fileno()
@@ -203,4 +185,5 @@ def test_main():
 
 
 if __name__ == '__main__':
-    test_main()
+    #test_main()
+    pass

@@ -1,9 +1,48 @@
 #[cfg(test)]
 mod tests {
+
+    use super::*;
+    use std::os::unix::io::IntoRawFd;
+
     #[test]
     fn it_works() {
         let result = 2 + 2;
         assert_eq!(result, 4);
+    }
+
+    #[test]
+    fn counts_images() {
+        let mut file = fs::File::open("/home/tomas/Projects/DrinkMoth2/data2/moth22_2022-01-26.cine").unwrap();
+        let headers = VideoHeaders::new(&mut file).unwrap();
+        assert_eq!(headers.image_count(), 2000);
+    }
+
+    #[test]
+    fn counts_image2() {
+        let mut file = fs::File::open("/home/tomas/Projects/DrinkMoth2/data2/moth22_2022-01-26.cine").unwrap();
+        let fd = file.into_raw_fd();
+        let count = unsafe {
+            image_count(fd)
+        };
+        let _f = unsafe {fs::File::from_raw_fd(fd) };
+        assert_eq!(count, 2000);
+    }
+
+    #[test]
+    fn last_image_works_bad() {
+        let mut file = fs::File::open("/home/tomas/Projects/DrinkMoth2/bad_videos/moth22_2022-02-09_okay.cine").unwrap();
+        let fd = file.into_raw_fd();
+        let count = unsafe {
+            image_count(fd)
+        };
+        let mut _f1 = unsafe {fs::File::from_raw_fd(fd)};
+        let heads = VideoHeaders::new(&mut _f1).unwrap();
+        let offsets = heads.get_image_offsets(&mut _f1).unwrap();
+        let last_offset = offsets[(count - 1) as usize];
+        let last_img = unsafe {
+            read_frame_interop(fd, last_offset)
+        };
+        assert_ne!(last_img, ptr::null());
     }
 }
 
@@ -51,6 +90,7 @@ pub unsafe extern "C" fn read_frame_interop(fd: i32, offset: u64) -> *const u8 {
             ptr
         },
         Err(_) => {
+            mem::forget(file);
             ptr::null()
         }
     }
@@ -69,7 +109,7 @@ pub unsafe extern "C" fn restricted_video_median(
             return ptr::null();
         }
     };
-    if start_index >= headers.image_count() || (start_index + img_count) >= headers.image_count() {
+    if start_index >= headers.image_count() as usize || (start_index + img_count) >= headers.image_count() as usize {
         return ptr::null();
     }
     let mut histograms = Vec::new();
@@ -219,6 +259,21 @@ pub unsafe extern "C" fn image_height(fd: i32) -> i32 {
     };
 
     let out = headers.image_height();
+    mem::forget(file);
+    out
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn image_count(fd :i32) -> u32 {
+    let mut file = fs::File::from_raw_fd(fd);
+    let chead = match VideoHeaders::new(&mut file) {
+        Some(h) => h,
+        None => {
+            return 0;
+        }
+    };
+
+    let out = chead.image_count() as u32;
     mem::forget(file);
     out
 }

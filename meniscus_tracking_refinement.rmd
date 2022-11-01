@@ -1,0 +1,153 @@
+---
+title: "MeniscusTrackingRefinement"
+author: "Tomas Pierce"
+date: "2022-10-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Load libraries
+```{r lib load, include=FALSE}
+require(ggplot2)
+require(dplyr)
+require(psych)
+require(sys)
+require(purrr)
+```
+
+Load in data
+```{r data load, include=FALSE}
+setwd("/home/tomas/Projects/DrinkMoth2")
+names <- Sys.glob("men_data/*.tsv")
+readtsv <- function (name) {
+  read.csv(name, header=FALSE, sep="\t")
+}
+tables <- lapply(names, readtsv)
+for (i in 1:length(names)) {
+  tables[[i]]$Filename <- names[[i]]
+}
+```
+
+rename key columns
+```{r renamin,g, include=FALSE}
+recol <- function (table) {
+  colnames(table)[1] <- "Frame"
+  colnames(table)[2] <- "Row"
+  colnames(table)[3] <- "Col"
+  colnames(table)[4] <- "Dcenter"
+  colnames(table)[5] <- "Area"
+  colnames(table)[6] <- "AreaBbox"
+  colnames(table)[7] <- "AreaConvex"
+  colnames(table)[8] <- "AreaFilled"
+  colnames(table)[9] <- "AxisMajorLen"
+  colnames(table)[10] <- "AxisMinorLen"
+  colnames(table)[11] <- "Eccentricity"
+  colnames(table)[12] <- "EquivDiamArea"
+  colnames(table)[13] <- "EulerNumber"
+  colnames(table)[14] <- "Extent"
+  colnames(table)[15] <- "FeretDiameterMax"
+  colnames(table)[16] <- "IntensityMax"
+  colnames(table)[17] <- "IntensityMean"
+  colnames(table)[18] <- "IntensityMin"
+  colnames(table)[19] <- "Label"
+  colnames(table)[20] <- "Orientation"
+  colnames(table)[21] <- "Perimeter"
+  colnames(table)[22] <- "PerimeterCrofton"
+  colnames(table)[23] <- "Solidity"
+  colnames(table)[24] <- "CenterY"
+  colnames(table)[25] <- "CenterX"
+  table
+}
+
+named_tables <- lapply(tables,recol)
+```
+
+Filter to only videos in which we have collected at least 10 data points (rows)
+```{r Give me the good data, include=FALSE}
+has10 <- function(table) {
+  nrow(table) > 10
+}
+
+long_tables <- named_tables[sapply(named_tables, has10) == TRUE]
+```
+
+We can see the trend line in the data we extract, we just want to
+see if there's a way to refine it further
+```{r show data, include=TRUE}
+for (longs in long_tables) {
+  p <- ggplot(longs, aes(Frame, Row)) + geom_point() +
+    theme_bw() + labs(title = longs$Filename[1])# + ylim(0, 600)
+  show(p)
+}
+```
+We can see that some of the videos go better than others.
+We take 14 and check to see if its good, then use it as an example of
+how we would want to do further analysis.
+```{r checking stuff, include=TRUE}
+twelve = long_tables[[12]]
+ggplot(twelve, aes(Frame, Row, col=Extent)) + geom_point() + labs(
+  title = twelve$Filename[1]
+)
+```
+
+As we can see that item 12 is one where the current approach works particualy well,
+we can use it work out a method of determining a local derivative measurement
+which is defensible from an approaches perspective.
+```{r looking for ways to find local derivates, include=TRUE}
+spline <- loess(Row ~ Frame, twelve)
+predicted <- predict(spline)
+ggplot(twelve, aes(Frame, Row, col="Model")) + 
+  geom_point() + 
+  geom_line(aes(Frame, predicted, col="Measurements")) + 
+  theme_bw() + 
+  labs(title = twelve$Filename[1])
+
+act_x_difs <- diff(twelve$Frame)
+act_y_difs <- diff(twelve$Row)
+pred_y_difs <- diff(predicted)
+
+from_act_deriv <- act_y_difs / act_x_difs
+from_mod_deriv <- pred_y_difs / act_x_difs
+
+derivs = twelve[1:nrow(twelve)-1,]
+
+derivs$NaiveDerive <- from_act_deriv
+derivs$LoessDerive <- from_mod_deriv
+
+ggplot(derivs, aes(Frame, NaiveDerive)) + 
+  geom_point() +
+  theme_bw() + 
+  labs(title = twelve$Filename[1])
+
+ggplot(derivs, aes(Frame, LoessDerive)) + 
+  geom_point() +
+  theme_bw() + 
+  labs(title = twelve$Filename[1])
+```
+
+Generalize this to every single file
+```{r, include=TRUE}
+splines <- lapply(long_tables, function(table) {
+  loess(Row ~ Frame, table)
+})
+predictions <- lapply(splines, function(spline) {
+  predict(spline)
+})
+for (i in 1:length(long_tables)) {
+  table <- long_tables[[i]]
+  model_pred <- predictions[[i]]
+  frame_difs <- diff(table$Frame)
+  row_difs <- diff(model_pred)
+  deriv <- row_difs / frame_difs
+  derivs <- table[1:nrow(table)-1,]
+  derivs$LoessDerive <- deriv
+  p <- ggplot(derivs, aes(Frame, LoessDerive)) +
+    geom_point() + 
+    theme_bw() + 
+    labs(title = derivs$Filename[1])
+  show(p)
+}
+```

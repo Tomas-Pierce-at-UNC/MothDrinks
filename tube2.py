@@ -118,6 +118,16 @@ def apply_bounds(image: np.ndarray, bounds: tuple) -> np.ndarray:
     return image[:, bounds[0]:bounds[1]]
 
 
+def constrain_to_tube_refwidth(target: np.ndarray, ref: np.ndarray) -> np.ndarray:
+    '''Finds a subregion of target that contains
+    the tube with the same width as the reference image'''
+    left, _r = get_tube(target)
+    width = ref.shape[1]
+    right = left + width
+    return apply_bounds(target, (left, right))
+
+
+
 if __name__ == '__main__':
 
     import time

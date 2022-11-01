@@ -20,6 +20,7 @@ pub struct CineHead {
     _seconds: u32,
 }
 
+
 #[derive(Copy, Clone, Debug)]
 #[repr(C)]
 pub struct BitmapHead {
@@ -114,8 +115,8 @@ impl VideoHeaders {
         self.bitmap._bi_height
     }
 
-    pub fn image_count(&self) -> usize {
-        self.cine._image_count as usize
+    pub fn image_count(&self) -> u32 {
+        self.cine._image_count
     }
 
     fn offset_to_image_offsets(&self) -> usize {
@@ -130,7 +131,7 @@ impl VideoHeaders {
             Some(it) => it,
             None => return None,
         };
-        let mut arena = vec![0u8; self.image_count() * 8];
+        let mut arena = vec![0u8; self.image_count() as usize * 8];
         match file.read_exact(arena.as_mut_slice()) {
             Ok(_blah) => (),
             Err(_e) => {
