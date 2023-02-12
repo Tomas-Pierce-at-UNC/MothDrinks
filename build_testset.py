@@ -36,7 +36,7 @@ for i, name in enumerate(videonames):
         # dif2 = res2.astype(int16) - res_med.astype(int16)
         # dif3 = res3.astype(int16) - res_med.astype(int16)
 
-        name = "training/img{}_{}.tif"
+        name = "test/img{}_{}.tif"
         
         imsave(name.format(i, 1), res1)
         imsave(name.format(i, 2), res2)

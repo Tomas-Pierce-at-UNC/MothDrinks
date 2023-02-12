@@ -3,9 +3,24 @@ import numpy as np
 import scipy
 from matplotlib import pyplot
 from skimage import filters, morphology as morpho, io as skio
-
 import cine
 
+def get_horiz_edges(image: np.ndarray) -> np.ndarray:
+    edges = filters.sobel_h(image)
+    mag_edges = np.abs(edges)
+    li = filters.threshold_li(mag_edges)
+    horiz = mag_edges > li
+    totals = horiz.sum(axis=0)
+    return totals
+
+def tube_crop1(image: np.ndarray) -> np.ndarray:
+    edgetotals = get_horiz_edges(image)
+    peak = edgetotals.argmax()
+    return image[:,peak - 50: peak + 50]
+
+def graph_edges(edges: np.ndarray):
+    pyplot.bar(list(range(len(edges))), edges)
+    pyplot.show()
 
 def lowli(image: np.ndarray) -> np.ndarray:
     """Uses Li's threshold to find dark objects on light background,
@@ -47,6 +62,11 @@ def find_stand(image: np.ndarray) -> tuple:
 def flower_is_left(image: np.ndarray, stand: tuple) -> bool:
     """Returns whether the flower is on the left of the
     perch stand. Assumes the ringstand is present in the image."""
+    # handle case of stand on edge explicitly
+    if stand[1] >= image.shape[1]: 
+        return True
+    if stand[0] <= 0:
+        return False
     left = image[:, :stand[0]]
     right = image[:, stand[1]:]
     # Because the images are set up to have a uniform backing light sheet,
@@ -68,12 +88,13 @@ def isolate_verticals(image: np.ndarray) -> np.ndarray:
 
 def get_tube(image: np.ndarray) -> tuple:
     """Finds a pair of boundary columns that the
-    area between them contains the simulated flower."""
+    area between them contains the artifical flower."""
     stand = find_stand(image)
     if stand is None:
         # glorious lack of visible vertical stand
         verts = isolate_verticals(image)
-        cols = verts.sum(axis=0)
+        cols = np.abs(verts).sum(axis=0)
+        #cols = get_vert_edge_mags(image)
         lcols = list(cols)
         height_thresh = filters.threshold_isodata(cols)
         tallest = cols.max()
@@ -126,48 +147,24 @@ def constrain_to_tube_refwidth(target: np.ndarray, ref: np.ndarray) -> np.ndarra
     right = left + width
     return apply_bounds(target, (left, right))
 
-
+def find_tube(image: np.ndarray) -> np.ndarray:
+    """locates the artifial flower in vertical position in an image by a
+    two step process and returns an array cropped to that region"""
+    cut = tube_crop1(image)
+    cutbounds = get_tube(cut)
+    return apply_bounds(cut, cutbounds)
 
 if __name__ == '__main__':
-
-    import time
-
-    EX1 = "data/moth23_2022-02-14_Cine1.cine"
-    EX2 = "data/moth22_2022_02_09_bad_Cine1.cine"
-    EX3 = "data/moth26_2022-02-15_freeflight.cine"
-    EX4 = "data/moth23_2022-02-15_Cine1.cine"
-
-    cin2 = cine.Cine(EX2)
-    med2 = cin2.get_video_median()
-    cin2.close()
-
-    cin4 = cine.Cine(EX4)
-    med4 = cin4.get_video_median()
-    cin4.close()
-
-    cin1 = cine.Cine(EX1)
-    med1 = cin1.get_video_median()
-    h = cin1.get_ith_image(200)
-    cin1.close()
-
-    cin3 = cine.Cine(EX3)
-    med3 = cin3.get_video_median()
-    cin3.close()
-
-    t1 = time.time()
-    tb1 = get_tube(med1)
-    t2 = time.time()
-    tb2 = get_tube(med2)
-    t3 = time.time()
-    tb3 = get_tube(med3)
-    t4 = time.time()
-    tb4 = get_tube(med4)
-    t5 = time.time()
-
-    res1 = med1[:, tb1[0]:tb1[1]]
-    res2 = med2[:, tb2[0]:tb2[1]]
-    res3 = med3[:, tb3[0]:tb3[1]]
-    res4 = med4[:, tb4[0]:tb4[1]]
-
-    ht = get_tube(h)
-    h_res = apply_bounds(h, ht)
+    import glob
+    import random
+    cines = glob.glob("data2/*.cine")
+    cinname = random.choice(cines)
+    cinehandle = cine.Cine(cinname)
+    frame = random.randint(0, cinehandle.image_count - 1)
+    img = cinehandle.get_ith_image(frame)
+    cinehandle.close()
+    tube = find_tube(img)
+    skio.imshow(tube)
+    pyplot.show()
+    skio.imshow(img)
+    pyplot.show()
