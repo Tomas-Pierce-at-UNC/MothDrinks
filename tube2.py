@@ -142,10 +142,10 @@ def apply_bounds(image: np.ndarray, bounds: tuple) -> np.ndarray:
 def constrain_to_tube_refwidth(target: np.ndarray, ref: np.ndarray) -> np.ndarray:
     '''Finds a subregion of target that contains
     the tube with the same width as the reference image'''
-    left, _r = get_tube(target)
+    cropped1 = tube_crop1(target)
     width = ref.shape[1]
-    right = left + width
-    return apply_bounds(target, (left, right))
+    left, _r = get_tube(cropped1)
+    return apply_bounds(cropped1, (left, left+width))
 
 def find_tube(image: np.ndarray) -> np.ndarray:
     """locates the artifial flower in vertical position in an image by a

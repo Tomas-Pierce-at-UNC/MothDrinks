@@ -1,4 +1,5 @@
 # Module to support opening .cine video files
+
 import array
 import ctypes
 import numpy
@@ -15,35 +16,6 @@ _cine_median.image_height.restype = ctypes.c_int32
 _cine_median.restricted_video_median.restype = BytePtr
 _cine_median.read_frame_interop.restype = BytePtr
 _cine_median.image_count.restype = ctypes.c_uint32
-
-
-class Histogram:
-
-    # min and max val are both inclusive
-    def __init__(self, minval: int, maxval: int):
-        self.minval = minval
-        self.maxval = maxval
-        self.count = 0
-        self.data = {}
-        for i in range(minval, maxval+1):
-            self.data[i] = 0
-
-    def add(self, value: int):
-        if value > self.maxval or value < self.minval:
-            raise ValueError(f"Value of {value} is outside bounds")
-        self.data[value] += 1
-        self.count += 1
-
-    def median(self):
-        halfpoint = (self.count + 1) // 2
-        total = 0
-        for value in sorted(self.data.keys()):
-            total += self.data[value]
-            if total > halfpoint:
-                return value
-    # nog642 (https://math.stackexchange.com/users/517892/nog642),
-    # How to find median from a histogram?, URL (version: 2018-01-04):
-    # https://math.stackexchange.com/q/2591986
 
 
 class Cine:
@@ -109,8 +81,11 @@ class Cine:
     def __get_ith_bytes_Rust(self, i) -> array.array:
         fd = self.get_fileno()
         offset = self.__image_offsets[i]
-        bptr = _cine_median.read_frame_interop(fd, offset)
+        my_offset = ctypes.c_uint64(offset)
+        bptr = _cine_median.read_frame_interop(fd, my_offset)
         data = bptr[:self.image_size]
+        sz = ctypes.c_uint64(self.image_size)
+        _cine_median.liberate_frame(bptr, sz)
         return data
 
     def __get_ith_image(self, i) -> numpy.ndarray:
@@ -143,6 +118,8 @@ class Cine:
         mybytes = _cine_median.video_median(fd)
         imsize = self.image_size
         data = mybytes[:imsize]
+        sz = ctypes.c_uint64(self.image_size)
+        _cine_median.liberate_frame(mybytes, sz)
         data = numpy.array(data, dtype=numpy.uint8)
         frame = numpy.reshape(data, (self.image_height, self.image_width))
         frame = numpy.flip(frame, 0)
@@ -160,6 +137,8 @@ class Cine:
             )
         imsize = self.image_size
         data = mybytes[:imsize]
+        sz = ctypes.c_uint64(self.image_size)
+        _cine_median.liberate_frame(mybytes, sz)
         data = numpy.array(data, dtype=numpy.uint8)
         frame = numpy.reshape(data, (self.image_height, self.image_width))
         frame = numpy.flip(frame, 0)
