@@ -42,38 +42,42 @@ def locate_object_regions(frame, mediantube, aligner):
     props = measure.regionprops(labeled, applied)
     return props
 
+
 def form_row(regionprop) -> tuple:
-    return (*regionprop.centroid, # 2, ;0, 1
-            *regionprop.centroid_weighted, # 2 ;2 3
-            *regionprop.bbox, # 4 ; 4 5 6 7
-            regionprop.area, # 1 ; 8
-            regionprop.major_axis_length, # 1 ; 9
-            regionprop.minor_axis_length, # 1 ; 10
-            regionprop.orientation, # 1 ; 11
-            regionprop.euler_number, # 1; 12
-            regionprop.feret_diameter_max, # 1 ; 13
-            regionprop.intensity_max, # 1 ; 14
-            regionprop.intensity_mean, # 1 ; 15
-            regionprop.intensity_min, # 1; 16
-            regionprop.perimeter, # 1 ; 17
-            regionprop.solidity, # 1 ; 18
-            regionprop.perimeter_crofton, # 1 ; 19
-            regionprop.equivalent_diameter_area, # 1 ; 20
-            regionprop.area_convex, # 1 ; 21
-            regionprop.extent, # 1 ; 22
-            regionprop.eccentricity # 1 ; 23        
-        )
+    return (*regionprop.centroid,  # 2, ;0, 1
+            *regionprop.centroid_weighted,  # 2 ;2 3
+            *regionprop.bbox,  # 4 ; 4 5 6 7
+            regionprop.area,  # 1 ; 8
+            regionprop.major_axis_length,  # 1 ; 9
+            regionprop.minor_axis_length,  # 1 ; 10
+            regionprop.orientation,  # 1 ; 11
+            regionprop.euler_number,  # 1; 12
+            regionprop.feret_diameter_max,  # 1 ; 13
+            regionprop.intensity_max,  # 1 ; 14
+            regionprop.intensity_mean,  # 1 ; 15
+            regionprop.intensity_min,  # 1; 16
+            regionprop.perimeter,  # 1 ; 17
+            regionprop.solidity,  # 1 ; 18
+            regionprop.perimeter_crofton,  # 1 ; 19
+            regionprop.equivalent_diameter_area,  # 1 ; 20
+            regionprop.area_convex,  # 1 ; 21
+            regionprop.extent,  # 1 ; 22
+            regionprop.eccentricity  # 1 ; 23
+            )
+
 
 def form_table(regionprops: list) -> np.ndarray:
     table = []
-    bigprops = filter(lambda region : region.area > 20, regionprops)
+    bigprops = filter(lambda region: region.area > 20, regionprops)
     for region in bigprops:
         row = form_row(region)
         table.append(row)
     return np.array(table)
 
+
 def attach_index(regiontable: np.ndarray, index):
     return np.c_[regiontable, np.ones((regiontable.shape[0],)) * index]
+
 
 def locate_objects(video, mediantube):
     aligner = align.SiftAligner(mediantube)
@@ -83,6 +87,7 @@ def locate_objects(video, mediantube):
         try:
             regions = locate_object_regions(frame, mediantube, aligner)
         except ValueError as e:
+            print(f"frame {i} caused")
             print(e)
             continue
         except AttributeError as e:
@@ -90,34 +95,45 @@ def locate_objects(video, mediantube):
             continue
         except RuntimeError as e:
             print(e)
-            #skio.imshow(frame)
+            # skio.imshow(frame)
             continue
         table = form_table(regions)
         indexed = attach_index(table, i)
-        mytables.append(indexed)
+        if 0 not in indexed.shape:
+            # weird things happen with empty arrays
+            mytables.append(indexed)
+    # try:
     sharedtable = np.concatenate(mytables)
+    # except ValueError as e:
+    #   # print(e)
+    #   #breakpoint()
     return sharedtable
 
+
 def find_real_measurements(loc_objs: np.ndarray):
-    MIN_WIDTH = 15 # fifteen pixel width minimum
-    MAX_AREA = 1000 # threshold of which meniscus is unlikely to be above
-    wides = loc_objs[loc_objs[:,7] - loc_objs[:,5] > MIN_WIDTH]
-    smalls = wides[wides[:,8] < MAX_AREA]
+    MIN_WIDTH = 15  # fifteen pixel width minimum
+    MAX_AREA = 1000  # threshold of which meniscus is unlikely to be above
+    wides = loc_objs[loc_objs[:, 7] - loc_objs[:, 5] > MIN_WIDTH]
+    smalls = wides[wides[:, 8] < MAX_AREA]
     isofor = IsolationForest()
     lbls = isofor.fit_predict(smalls)
     return smalls, lbls
+
 
 def get_random_vid():
     names = glob.glob("data2/*.cine")
     name = random.choice(names)
     return Cine(name)
 
-def get_stem(filename):
+
+def get_stem(filename: str) -> str:
     return pathlib.Path(filename).stem
+
 
 def process(filename: str):
     print(filename)
     video = Cine(filename)
+    filtered = None
     try:
         print("median")
         med = video.get_video_median()
@@ -125,23 +141,26 @@ def process(filename: str):
         loc_objs = locate_objects(video, mtube)
         w, lbls = find_real_measurements(loc_objs)
         filtered = w[lbls == 1]
-        #low = filtered[filtered[:,7] < filtered[:,7].mean()]
-        pyplot.scatter(filtered[:,-1], filtered[:,0], marker='.')
+        # low = filtered[filtered[:,7] < filtered[:,7].mean()]
+        pyplot.scatter(filtered[:, -1], filtered[:, 0], marker='.')
         stem = get_stem(filename)
+        np.savetxt("meniscusTracks5/{}.csv".format(stem), loc_objs, delimiter=",")
         pyplot.title(stem)
-        pyplot.savefig("meniscusTracks4/{}.png".format(stem))
+        pyplot.savefig("meniscusTracks5/{}.png".format(stem))
         pyplot.close()
     except Exception as e:
         print(e)
     finally:
         video.close()
-    return filename
+    return filename, filtered
+
 
 MAX_WIDTH = 30
 
 if __name__ == '__main__':
     names = glob.glob("data2/*.cine")
+    names.extend(glob.glob("data2/unsuitableVideos/*.cine"))
+    measurements = {}
     with multi.Pool(16) as pool:
-        for fname in pool.imap_unordered(process, names):
-            print(fname)
-
+        for fname, data in pool.imap_unordered(process, names):
+            measurements[fname] = data

@@ -13,9 +13,10 @@ import tube2
 import glob
 import random
 
-names = glob.glob("data2/*.cine")
-filename = random.choice(names)
-print(filename)
+#names = glob.glob("data2/*.cine")
+#filename = random.choice(names)
+#print(filename)
+filename = "data2/moth26_2022-02-22_Cine1.cine"
 
 c = Cine(filename)
 

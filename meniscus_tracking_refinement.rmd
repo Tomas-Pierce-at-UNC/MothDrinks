@@ -16,12 +16,13 @@ require(dplyr)
 require(psych)
 require(sys)
 require(purrr)
+require(gridExtra)
 ```
 
 Load in data
 ```{r data load, include=FALSE}
 setwd("/home/tomas/Projects/DrinkMoth2")
-names <- Sys.glob("men_data/*.tsv")
+names <- Sys.glob("chopped_men_data/*.tsv")
 readtsv <- function (name) {
   read.csv(name, header=FALSE, sep="\t")
 }
@@ -77,11 +78,15 @@ long_tables <- named_tables[sapply(named_tables, has10) == TRUE]
 We can see the trend line in the data we extract, we just want to
 see if there's a way to refine it further
 ```{r show data, include=TRUE}
+graphs <- list()
 for (longs in long_tables) {
-  p <- ggplot(longs, aes(Frame, Row)) + geom_point() +
+  p <- ggplot(longs, aes(Frame, Row, col=Perimeter)) + geom_point() +
     theme_bw() + labs(title = longs$Filename[1])# + ylim(0, 600)
   show(p)
+  graphs[[length(graphs) + 1]] <- p
+  # longs$Wideness <- cos(longs$Orientation) * longs$MajorAxisLen
 }
+
 ```
 We can see that some of the videos go better than others.
 We take 14 and check to see if its good, then use it as an example of
@@ -90,7 +95,7 @@ how we would want to do further analysis.
 twelve = long_tables[[12]]
 ggplot(twelve, aes(Frame, Row, col=Extent)) + geom_point() + labs(
   title = twelve$Filename[1]
-)
+) + theme_bw()
 ```
 
 As we can see that item 12 is one where the current approach works particualy well,
@@ -99,11 +104,12 @@ which is defensible from an approaches perspective.
 ```{r looking for ways to find local derivates, include=TRUE}
 spline <- loess(Row ~ Frame, twelve)
 predicted <- predict(spline)
-ggplot(twelve, aes(Frame, Row, col="Model")) + 
-  geom_point() + 
-  geom_line(aes(Frame, predicted, col="Measurements")) + 
+ggplot(twelve, aes(Frame, Row)) + 
+  geom_point(aes(col="Measurements")) + 
+  geom_line(aes(Frame, predicted, col="Model")) + 
   theme_bw() + 
-  labs(title = twelve$Filename[1])
+  labs(title = twelve$Filename[1]) +
+  theme(legend.position = c(0.2, 0.75))
 
 act_x_difs <- diff(twelve$Frame)
 act_y_difs <- diff(twelve$Row)
@@ -147,7 +153,63 @@ for (i in 1:length(long_tables)) {
   p <- ggplot(derivs, aes(Frame, LoessDerive)) +
     geom_point() + 
     theme_bw() + 
-    labs(title = derivs$Filename[1])
+    labs(title = derivs$Filename[1]) + 
+    geom_hline(yintercept = 0, color='red')
+  show(p)
+}
+```
+
+Permit me to try filtration on Major Axis Length
+```{r give me the glorious graphs, include=TRUE}
+
+narrows <- lapply(long_tables, function (table) {
+  table[table$AxisMajorLen < 35,]
+})
+
+for (nar in narrows) {
+  filename <- nar$Filename[1]
+  name_bits <- unlist(strsplit(filename, "/"))
+  name <- name_bits[2]
+  pieces <- unlist(strsplit(name, "[\\_\\-\\.]"))
+  graph_title <- paste(pieces[-length(pieces)], collapse=' ')
+  p<- ggplot(nar, aes(Frame / 30, Row)) + 
+    geom_point() +
+    theme_bw() + 
+    labs(title = graph_title) +
+    ylab("Meniscus Depth (pixels)") +
+    xlab("Elapsed Time (seconds)")
+  
+  show(p)
+}
+```
+Create Loess model derivatives on filters
+```{r give me better derivatives, include=TRUE}
+for (nar in narrows) {
+  filename <- nar$Filename[1]
+  name_bits <- unlist(strsplit(filename, "/"))
+  name <- name_bits[2]
+  pieces <- unlist(strsplit(name, "[\\_\\-\\.]"))
+  graph_title <- paste(pieces[-length(pieces)], collapse=' ')
+  graph_title <- paste(graph_title, "Meniscus Rate")
+  loess_model <- loess(Row ~ Frame, nar)
+  preds <- predict(loess_model)
+  filename <- nar$Filename[1]
+  delta_x <- diff(nar$Frame)
+  delta_y <- diff(preds)
+  deriv <- delta_y / delta_x
+  dtable <- nar[1:nrow(nar) - 1,]
+  dtable$Deriv <- deriv
+  # convert unit from pixels / frame to pixels / second
+  dtable$MenRate <- deriv * 30
+  # convert time to seconds
+  dtable$ElapsedTime <- dtable$Frame / 30
+  p <- ggplot(dtable, aes(ElapsedTime, MenRate)) + 
+    geom_point() + 
+    theme_bw() +
+    labs(title = graph_title) + 
+    geom_hline(yintercept = 0, color='red') + 
+    ylab("Meniscus Velocity (pixels / second)") + 
+    xlab("Elapsed Time (seconds)")
   show(p)
 }
 ```
