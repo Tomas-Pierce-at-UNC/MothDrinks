@@ -22,9 +22,11 @@ def load_measurements(filename: str) -> np.ndarray:
 
 def width_filter(table: np.ndarray) -> np.ndarray:
     w = table[table[:,7] - table[:,5] > MIN_WIDTH]
-    t = threshold_isodata(w[:,7] - w[:,5])
-    w2 = w[w[:,7] - w[:,5] < t]
-    return w2
+    # counterproductive if full wideness filtered out
+    #t = threshold_isodata(w[:,7] - w[:,5])
+    # needs to be greater than if all the non-data is below
+    #w2 = w[w[:,7] - w[:,5] < t]
+    return w
 
 def find_real_data(table: np.ndarray) -> np.ndarray:
     w = width_filter(table)
@@ -54,7 +56,7 @@ def filter_derivatives(xpos, deriv):
     return valid_x[cond], valid_d[cond]
 
 def main():
-    names = glob.glob("meniscusTracks5/*.csv")
+    names = glob.glob("meniscusTracks6/*.csv")
     for name in names:
         try:
             data = load_measurements(name)

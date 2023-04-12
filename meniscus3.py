@@ -139,14 +139,16 @@ def process(filename: str):
         med = video.get_video_median()
         mtube = tube2.find_tube(med)
         loc_objs = locate_objects(video, mtube)
+        # should remove hits to antenae
+        #loc_objs = loc_objs[loc_objs[:,7] - loc_objs[:,5] < mtube.shape[1]]
         w, lbls = find_real_measurements(loc_objs)
         filtered = w[lbls == 1]
         # low = filtered[filtered[:,7] < filtered[:,7].mean()]
         pyplot.scatter(filtered[:, -1], filtered[:, 0], marker='.')
         stem = get_stem(filename)
-        np.savetxt("meniscusTracks5/{}.csv".format(stem), loc_objs, delimiter=",")
+        np.savetxt("meniscusTracks6/{}.csv".format(stem), loc_objs, delimiter=",")
         pyplot.title(stem)
-        pyplot.savefig("meniscusTracks5/{}.png".format(stem))
+        pyplot.savefig("meniscusTracks6/{}.png".format(stem))
         pyplot.close()
     except Exception as e:
         print(e)
@@ -155,7 +157,6 @@ def process(filename: str):
     return filename, filtered
 
 
-MAX_WIDTH = 30
 
 if __name__ == '__main__':
     names = glob.glob("data2/*.cine")
