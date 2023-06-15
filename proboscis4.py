@@ -87,57 +87,6 @@ def predict_batch(batch, p_model, thresh=0.1):
                                                        connectivity=2)
     return out
 
-def main():
-    if not os.path.isdir("./proboscis_canidates"):
-        os.mkdir("./proboscis_canidates")
-    
-    model = keras.models.load_model("proboscis_utils/proboscis_model_b1")
-    names = glob.glob("data2/**/*.cine", recursive=True)
-    names = reversed(names)
-    #data = {}
-    for name in names:
-        measurements = []
-        cine = Cine(name)
-        # med = cine.get_video_median()
-        # med = tube2.tube_crop1(med)
-        for i in range(0,cine.image_count, 16):
-            if i + 16 >= cine.image_count:
-                break
-            images = []
-            for j in range(i,i+16):
-                frame = cine.get_ith_image(j)
-                tube = tube2.tube_crop1(frame)
-                images.append(tube)
-            try:
-                in_arr = np.array(images)
-            except ValueError as e:
-                print(e)
-                continue
-            in_arr = in_arr[...,np.newaxis]
-            if in_arr.shape != (16, 600, 100, 1):
-                print(in_arr.shape)
-                print("shape is wrong")
-                continue
-            out = model(in_arr)
-            out_arr = out.numpy()
-            for k in range(0,16):
-                prediction = out_arr[k,:,:,0]
-                #p = np.empty_like(prediction)
-                #p[:] = prediction
-                #p[p < 0] = 0
-                #p = p / p.max()
-                mask = prediction > 0.1
-                big = morphology.remove_small_objects(mask, min_size=50, connectivity=2)
-                label = measure.label(big)
-                regiontable = measure.regionprops_table(label,properties=('label','bbox','eccentricity'))
-                datum = max(regiontable['bbox-2'], default=-10)
-                measurements.append((i+k, datum))
-                #imshow(p > 0.1)
-                #pyplot.show()
-        mmts = np.array(measurements)
-        np.savetxt("./proboscis_canidates/{}.tsv".format(pathlib.Path(name).stem), mmts, delimiter='\t')
-        cine.close()
-
 
 def measure_proboscis_position(videoname):
     #main()
