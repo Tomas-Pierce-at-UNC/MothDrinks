@@ -16,6 +16,7 @@ _cine_median.image_height.restype = ctypes.c_int32
 _cine_median.restricted_video_median.restype = BytePtr
 _cine_median.read_frame_interop.restype = BytePtr
 _cine_median.image_count.restype = ctypes.c_uint32
+_cine_median.frame_rate.restype = ctypes.c_uint16
 
 
 class Cine:
@@ -31,6 +32,7 @@ class Cine:
         self.image_width: int = self.__get_image_width()
         self.image_height: int = self.__get_image_height()
         self.image_size: int = self.__get_image_size()
+        self.framerate = self.__frame_rate()
         self.__image_offsets = self.__get_image_offsets()
         self.__to = self.__to_images_offset()
 
@@ -39,6 +41,12 @@ class Cine:
         fnmbr = ctypes.c_uint32(fn)
         count = _cine_median.image_count(fnmbr)
         return count
+
+    def __frame_rate(self) -> int:
+        fn = self.handle.fileno()
+        fnmb = ctypes.c_uint32(fn)
+        framerate = _cine_median.frame_rate(fnmb)
+        return framerate
 
     def __to_images_offset(self) -> int:
         self.handle.seek(0x20)
