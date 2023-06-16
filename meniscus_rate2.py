@@ -45,7 +45,8 @@ def apply_isolation_forest(table):
     table = table[lbls == 1]
     return table
 
-        
+def form_model(table):
+    return loess_1d.loess_1d(table[:,0], table[:,1])
 
 def main():
     unit_conv = real_unit_convert.UnitConversion()
