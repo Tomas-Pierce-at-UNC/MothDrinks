@@ -1,0 +1,1540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>106105</id>
+      <name>MeniscusLabeling</name>
+      <size>373</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-03-17 18:39:00.307467+00:00</created>
+      <updated>2023-03-17 19:07:49.541405+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>372</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>105314</id>
+          <start>0</start>
+          <stop>372</stop>
+          <url>https://app.cvat.ai/api/jobs/105314</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>Tomas-Pierce-at-UNC</username>
+        <email>ttomas@email.unc.edu</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>Meniscus</name>
+          <color>#2d3e40</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>MeniscusCenter</name>
+          <color>#7df988</color>
+          <type>points</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>Proboscis</name>
+          <color>#a75021</color>
+          <type>polyline</type>
+          <attributes>
+          </attributes>
+        </label>
+        <label>
+          <name>ProboscisTip</name>
+          <color>#bb7ead</color>
+          <type>points</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </task>
+    <dumped>2023-03-17 19:11:00.712145+00:00</dumped>
+  </meta>
+  <image id="0" name="big/example0000000.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.10,294.00" z_order="0">
+    </points>
+  </image>
+  <image id="1" name="big/example0000001.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.50,304.80" z_order="0">
+    </points>
+  </image>
+  <image id="2" name="big/example0000002.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.40,297.40" z_order="0">
+    </points>
+  </image>
+  <image id="3" name="big/example0000003.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.48,294.16" z_order="0">
+    </points>
+  </image>
+  <image id="4" name="big/example0000004.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.30,291.80" z_order="0">
+    </points>
+  </image>
+  <image id="5" name="big/example0000005.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="51.70,297.00" z_order="0">
+    </points>
+  </image>
+  <image id="6" name="big/example0000006.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.90,295.70" z_order="0">
+    </points>
+  </image>
+  <image id="7" name="big/example0000007.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="53.42,296.97" z_order="0">
+    </points>
+  </image>
+  <image id="8" name="big/example0000008.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.40,291.70" z_order="0">
+    </points>
+  </image>
+  <image id="9" name="big/example0000009.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.40,295.70" z_order="0">
+    </points>
+  </image>
+  <image id="10" name="big/example0000010.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.30,300.00" z_order="0">
+    </points>
+  </image>
+  <image id="11" name="big/example0000011.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.10,294.20" z_order="0">
+    </points>
+  </image>
+  <image id="12" name="big/example0000012.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.00,297.50" z_order="0">
+    </points>
+  </image>
+  <image id="13" name="big/example0000013.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.30,302.50" z_order="0">
+    </points>
+  </image>
+  <image id="14" name="big/example0000014.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.20,294.30" z_order="0">
+    </points>
+  </image>
+  <image id="15" name="big/example0000015.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.20,306.30" z_order="0">
+    </points>
+  </image>
+  <image id="16" name="big/example0000016.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.40,300.50" z_order="0">
+    </points>
+  </image>
+  <image id="17" name="big/example0000017.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.00,303.00" z_order="0">
+    </points>
+  </image>
+  <image id="18" name="big/example0000018.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="34.50,303.60" z_order="0">
+    </points>
+  </image>
+  <image id="19" name="big/example0000019.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.00,306.20" z_order="0">
+    </points>
+  </image>
+  <image id="20" name="big/example0000020.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.13,304.75" z_order="0">
+    </points>
+  </image>
+  <image id="21" name="big/example0000021.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.10,313.00" z_order="0">
+    </points>
+  </image>
+  <image id="22" name="big/example0000022.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.50,310.20" z_order="0">
+    </points>
+  </image>
+  <image id="23" name="big/example0000023.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.30,316.20" z_order="0">
+    </points>
+  </image>
+  <image id="24" name="big/example0000024.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.40,317.10" z_order="0">
+    </points>
+  </image>
+  <image id="25" name="big/example0000025.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.60,316.90" z_order="0">
+    </points>
+  </image>
+  <image id="26" name="big/example0000026.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.60,312.80" z_order="0">
+    </points>
+  </image>
+  <image id="27" name="big/example0000027.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.70,302.10" z_order="0">
+    </points>
+  </image>
+  <image id="28" name="big/example0000028.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.10,316.90" z_order="0">
+    </points>
+  </image>
+  <image id="29" name="big/example0000029.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.30,312.70" z_order="0">
+    </points>
+  </image>
+  <image id="30" name="big/example0000030.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.20,311.40" z_order="0">
+    </points>
+  </image>
+  <image id="31" name="big/example0000031.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.50,310.20" z_order="0">
+    </points>
+  </image>
+  <image id="32" name="big/example0000032.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.20,311.40" z_order="0">
+    </points>
+  </image>
+  <image id="33" name="big/example0000033.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.10,313.40" z_order="0">
+    </points>
+  </image>
+  <image id="34" name="big/example0000034.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.30,306.00" z_order="0">
+    </points>
+  </image>
+  <image id="35" name="big/example0000035.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.60,315.50" z_order="0">
+    </points>
+  </image>
+  <image id="36" name="big/example0000036.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.86,316.10" z_order="0">
+    </points>
+  </image>
+  <image id="37" name="big/example0000037.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.70,310.50" z_order="0">
+    </points>
+  </image>
+  <image id="38" name="big/example0000038.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.10,312.50" z_order="0">
+    </points>
+  </image>
+  <image id="39" name="big/example0000039.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.50,314.40" z_order="0">
+    </points>
+  </image>
+  <image id="40" name="big/example0000040.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="51.37,219.82" z_order="0">
+    </points>
+  </image>
+  <image id="41" name="big/example0000041.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.26,220.04" z_order="0">
+    </points>
+  </image>
+  <image id="42" name="big/example0000042.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.48,182.77" z_order="0">
+    </points>
+  </image>
+  <image id="43" name="big/example0000043.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="51.26,218.72" z_order="0">
+    </points>
+  </image>
+  <image id="44" name="big/example0000044.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="50.91,190.77" z_order="0">
+    </points>
+  </image>
+  <image id="45" name="big/example0000045.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="53.02,182.30" z_order="0">
+    </points>
+  </image>
+  <image id="46" name="big/example0000046.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.09,181.35" z_order="0">
+    </points>
+  </image>
+  <image id="47" name="big/example0000047.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="51.60,220.57" z_order="0">
+    </points>
+  </image>
+  <image id="48" name="big/example0000048.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.40,218.00" z_order="0">
+    </points>
+  </image>
+  <image id="49" name="big/example0000049.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.76,182.33" z_order="0">
+    </points>
+  </image>
+  <image id="50" name="big/example0000050.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="53.10,207.20" z_order="0">
+    </points>
+  </image>
+  <image id="51" name="big/example0000051.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.80,199.80" z_order="0">
+    </points>
+  </image>
+  <image id="52" name="big/example0000052.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.54,215.36" z_order="0">
+    </points>
+  </image>
+  <image id="53" name="big/example0000053.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="50.10,221.00" z_order="0">
+    </points>
+  </image>
+  <image id="54" name="big/example0000054.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.00,182.30" z_order="0">
+    </points>
+  </image>
+  <image id="55" name="big/example0000055.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.90,209.30" z_order="0">
+    </points>
+  </image>
+  <image id="56" name="big/example0000056.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="51.20,205.30" z_order="0">
+    </points>
+  </image>
+  <image id="57" name="big/example0000057.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="53.84,211.75" z_order="0">
+    </points>
+  </image>
+  <image id="58" name="big/example0000058.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="53.30,212.90" z_order="0">
+    </points>
+  </image>
+  <image id="59" name="big/example0000059.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.45,210.80" z_order="0">
+    </points>
+  </image>
+  <image id="60" name="big/example0000060.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.70,310.20" z_order="0">
+    </points>
+  </image>
+  <image id="61" name="big/example0000061.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.20,322.10" z_order="0">
+    </points>
+  </image>
+  <image id="62" name="big/example0000062.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.59,311.63" z_order="0">
+    </points>
+  </image>
+  <image id="63" name="big/example0000063.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.10,305.00" z_order="0">
+    </points>
+  </image>
+  <image id="64" name="big/example0000064.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.90,323.05" z_order="0">
+    </points>
+  </image>
+  <image id="65" name="big/example0000065.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.00,296.70" z_order="0">
+    </points>
+  </image>
+  <image id="66" name="big/example0000066.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.10,311.80" z_order="0">
+    </points>
+  </image>
+  <image id="67" name="big/example0000067.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.00,324.50" z_order="0">
+    </points>
+  </image>
+  <image id="68" name="big/example0000068.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.90,295.50" z_order="0">
+    </points>
+  </image>
+  <image id="69" name="big/example0000069.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.90,310.70" z_order="0">
+    </points>
+  </image>
+  <image id="70" name="big/example0000070.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.90,307.30" z_order="0">
+    </points>
+  </image>
+  <image id="71" name="big/example0000071.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.20,311.00" z_order="0">
+    </points>
+  </image>
+  <image id="72" name="big/example0000072.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.40,305.80" z_order="0">
+    </points>
+  </image>
+  <image id="73" name="big/example0000073.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.50,314.90" z_order="0">
+    </points>
+  </image>
+  <image id="74" name="big/example0000074.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.10,299.10" z_order="0">
+    </points>
+  </image>
+  <image id="75" name="big/example0000075.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.20,293.70" z_order="0">
+    </points>
+  </image>
+  <image id="76" name="big/example0000076.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.60,311.20" z_order="0">
+    </points>
+  </image>
+  <image id="77" name="big/example0000077.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.00,307.20" z_order="0">
+    </points>
+  </image>
+  <image id="78" name="big/example0000078.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.10,309.50" z_order="0">
+    </points>
+  </image>
+  <image id="79" name="big/example0000079.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.70,311.20" z_order="0">
+    </points>
+  </image>
+  <image id="80" name="big/example0000080.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.10,100.70" z_order="0">
+    </points>
+  </image>
+  <image id="81" name="big/example0000081.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.96,130.55" z_order="0">
+    </points>
+  </image>
+  <image id="82" name="big/example0000082.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.77,128.85" z_order="0">
+    </points>
+  </image>
+  <image id="83" name="big/example0000083.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.00,96.90" z_order="0">
+    </points>
+  </image>
+  <image id="84" name="big/example0000084.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.00,143.90" z_order="0">
+    </points>
+  </image>
+  <image id="86" name="big/example0000086.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.60,142.80" z_order="0">
+    </points>
+  </image>
+  <image id="87" name="big/example0000087.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.99,111.78" z_order="0">
+    </points>
+  </image>
+  <image id="88" name="big/example0000088.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.40,149.30" z_order="0">
+    </points>
+  </image>
+  <image id="90" name="big/example0000090.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="48.60,131.10" z_order="0">
+    </points>
+  </image>
+  <image id="91" name="big/example0000091.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.10,95.40" z_order="0">
+    </points>
+  </image>
+  <image id="92" name="big/example0000092.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.30,150.00" z_order="0">
+    </points>
+  </image>
+  <image id="94" name="big/example0000094.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="48.11,94.20" z_order="0">
+    </points>
+  </image>
+  <image id="95" name="big/example0000095.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.00,149.40" z_order="0">
+    </points>
+  </image>
+  <image id="96" name="big/example0000096.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.72,147.79" z_order="0">
+    </points>
+  </image>
+  <image id="97" name="big/example0000097.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.00,150.90" z_order="0">
+    </points>
+  </image>
+  <image id="99" name="big/example0000099.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.60,130.70" z_order="0">
+    </points>
+  </image>
+  <image id="100" name="big/example0000100.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.15,150.75" z_order="0">
+    </points>
+  </image>
+  <image id="101" name="big/example0000101.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.80,135.70" z_order="0">
+    </points>
+  </image>
+  <image id="102" name="big/example0000102.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="50.70,146.60" z_order="0">
+    </points>
+  </image>
+  <image id="103" name="big/example0000103.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.10,114.59" z_order="0">
+    </points>
+  </image>
+  <image id="104" name="big/example0000104.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.70,130.10" z_order="0">
+    </points>
+  </image>
+  <image id="105" name="big/example0000105.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.10,152.10" z_order="0">
+    </points>
+  </image>
+  <image id="106" name="big/example0000106.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="51.11,135.11" z_order="0">
+    </points>
+  </image>
+  <image id="107" name="big/example0000107.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="48.60,145.20" z_order="0">
+    </points>
+  </image>
+  <image id="108" name="big/example0000108.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.68,114.20" z_order="0">
+    </points>
+  </image>
+  <image id="109" name="big/example0000109.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.34,150.72" z_order="0">
+    </points>
+  </image>
+  <image id="110" name="big/example0000110.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.61,109.88" z_order="0">
+    </points>
+  </image>
+  <image id="111" name="big/example0000111.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="48.75,111.94" z_order="0">
+    </points>
+  </image>
+  <image id="112" name="big/example0000112.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="50.47,142.86" z_order="0">
+    </points>
+  </image>
+  <image id="113" name="big/example0000113.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="51.00,138.60" z_order="0">
+    </points>
+  </image>
+  <image id="114" name="big/example0000114.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="50.00,151.40" z_order="0">
+    </points>
+  </image>
+  <image id="115" name="big/example0000115.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="51.20,133.00" z_order="0">
+    </points>
+  </image>
+  <image id="116" name="big/example0000116.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="50.82,137.56" z_order="0">
+    </points>
+  </image>
+  <image id="117" name="big/example0000117.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.81,142.17" z_order="0">
+    </points>
+  </image>
+  <image id="118" name="big/example0000118.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.78,148.36" z_order="0">
+    </points>
+  </image>
+  <image id="119" name="big/example0000119.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="48.48,116.72" z_order="0">
+    </points>
+  </image>
+  <image id="120" name="big/example0000120.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.24,317.25" z_order="0">
+    </points>
+  </image>
+  <image id="121" name="big/example0000121.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.99,328.46" z_order="0">
+    </points>
+  </image>
+  <image id="122" name="big/example0000122.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="55.18,370.62" z_order="0">
+    </points>
+  </image>
+  <image id="123" name="big/example0000123.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.12,344.50" z_order="0">
+    </points>
+  </image>
+  <image id="124" name="big/example0000124.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.72,333.00" z_order="0">
+    </points>
+  </image>
+  <image id="125" name="big/example0000125.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="55.98,381.71" z_order="0">
+    </points>
+  </image>
+  <image id="126" name="big/example0000126.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="38.35,404.06" z_order="0">
+    </points>
+  </image>
+  <image id="127" name="big/example0000127.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.52,414.25" z_order="0">
+    </points>
+  </image>
+  <image id="128" name="big/example0000128.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.42,386.27" z_order="0">
+    </points>
+  </image>
+  <image id="129" name="big/example0000129.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="68.59,404.69" z_order="0">
+    </points>
+  </image>
+  <image id="130" name="big/example0000130.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="38.14,345.19" z_order="0">
+    </points>
+  </image>
+  <image id="131" name="big/example0000131.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.37,370.87" z_order="0">
+    </points>
+  </image>
+  <image id="132" name="big/example0000132.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="38.87,324.06" z_order="0">
+    </points>
+  </image>
+  <image id="133" name="big/example0000133.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="53.43,327.76" z_order="0">
+    </points>
+  </image>
+  <image id="134" name="big/example0000134.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.41,352.23" z_order="0">
+    </points>
+  </image>
+  <image id="135" name="big/example0000135.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.33,355.45" z_order="0">
+    </points>
+  </image>
+  <image id="136" name="big/example0000136.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="53.69,320.28" z_order="0">
+    </points>
+  </image>
+  <image id="137" name="big/example0000137.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.71,315.63" z_order="0">
+    </points>
+  </image>
+  <image id="138" name="big/example0000138.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.96,410.89" z_order="0">
+    </points>
+  </image>
+  <image id="139" name="big/example0000139.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="38.49,316.87" z_order="0">
+    </points>
+  </image>
+  <image id="140" name="big/example0000140.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.03,288.47" z_order="0">
+    </points>
+  </image>
+  <image id="141" name="big/example0000141.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.46,309.82" z_order="0">
+    </points>
+  </image>
+  <image id="142" name="big/example0000142.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="62.59,320.40" z_order="0">
+    </points>
+  </image>
+  <image id="143" name="big/example0000143.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.20,293.28" z_order="0">
+    </points>
+  </image>
+  <image id="144" name="big/example0000144.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.05,294.91" z_order="0">
+    </points>
+  </image>
+  <image id="145" name="big/example0000145.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.80,323.80" z_order="0">
+    </points>
+  </image>
+  <image id="146" name="big/example0000146.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.20,307.50" z_order="0">
+    </points>
+  </image>
+  <image id="147" name="big/example0000147.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.70,308.10" z_order="0">
+    </points>
+  </image>
+  <image id="148" name="big/example0000148.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.80,303.70" z_order="0">
+    </points>
+  </image>
+  <image id="149" name="big/example0000149.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.20,310.10" z_order="0">
+    </points>
+  </image>
+  <image id="150" name="big/example0000150.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.80,301.50" z_order="0">
+    </points>
+  </image>
+  <image id="151" name="big/example0000151.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.20,288.70" z_order="0">
+    </points>
+  </image>
+  <image id="152" name="big/example0000152.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.00,311.50" z_order="0">
+    </points>
+  </image>
+  <image id="153" name="big/example0000153.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.40,291.00" z_order="0">
+    </points>
+  </image>
+  <image id="154" name="big/example0000154.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.00,288.30" z_order="0">
+    </points>
+  </image>
+  <image id="155" name="big/example0000155.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="62.01,310.04" z_order="0">
+    </points>
+  </image>
+  <image id="156" name="big/example0000156.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.60,297.30" z_order="0">
+    </points>
+  </image>
+  <image id="157" name="big/example0000157.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.80,295.71" z_order="0">
+    </points>
+  </image>
+  <image id="158" name="big/example0000158.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.41,281.55" z_order="0">
+    </points>
+  </image>
+  <image id="159" name="big/example0000159.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.21,310.30" z_order="0">
+    </points>
+  </image>
+  <image id="160" name="big/example0000160.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.80,267.31" z_order="0">
+    </points>
+  </image>
+  <image id="161" name="big/example0000161.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.02,271.84" z_order="0">
+    </points>
+  </image>
+  <image id="162" name="big/example0000162.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.87,271.13" z_order="0">
+    </points>
+  </image>
+  <image id="163" name="big/example0000163.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.30,271.88" z_order="0">
+    </points>
+  </image>
+  <image id="164" name="big/example0000164.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.87,275.33" z_order="0">
+    </points>
+  </image>
+  <image id="165" name="big/example0000165.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.59,267.38" z_order="0">
+    </points>
+  </image>
+  <image id="166" name="big/example0000166.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.48,275.82" z_order="0">
+    </points>
+  </image>
+  <image id="167" name="big/example0000167.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.41,274.11" z_order="0">
+    </points>
+  </image>
+  <image id="168" name="big/example0000168.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.01,271.29" z_order="0">
+    </points>
+  </image>
+  <image id="169" name="big/example0000169.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.58,272.03" z_order="0">
+    </points>
+  </image>
+  <image id="170" name="big/example0000170.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="34.70,267.20" z_order="0">
+    </points>
+  </image>
+  <image id="171" name="big/example0000171.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="56.12,271.89" z_order="0">
+    </points>
+  </image>
+  <image id="172" name="big/example0000172.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.00,267.96" z_order="0">
+    </points>
+  </image>
+  <image id="173" name="big/example0000173.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.58,271.69" z_order="0">
+    </points>
+  </image>
+  <image id="174" name="big/example0000174.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.40,267.10" z_order="0">
+    </points>
+  </image>
+  <image id="175" name="big/example0000175.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.45,268.17" z_order="0">
+    </points>
+  </image>
+  <image id="176" name="big/example0000176.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.40,272.81" z_order="0">
+    </points>
+  </image>
+  <image id="177" name="big/example0000177.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.12,266.74" z_order="0">
+    </points>
+  </image>
+  <image id="178" name="big/example0000178.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="35.71,271.02" z_order="0">
+    </points>
+  </image>
+  <image id="179" name="big/example0000179.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="33.68,267.18" z_order="0">
+    </points>
+  </image>
+  <image id="180" name="big/example0000180.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.85,322.30" z_order="0">
+    </points>
+  </image>
+  <image id="181" name="big/example0000181.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.88,381.34" z_order="0">
+    </points>
+  </image>
+  <image id="182" name="big/example0000182.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.87,393.89" z_order="0">
+    </points>
+  </image>
+  <image id="183" name="big/example0000183.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.80,353.10" z_order="0">
+    </points>
+  </image>
+  <image id="184" name="big/example0000184.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.72,354.11" z_order="0">
+    </points>
+  </image>
+  <image id="185" name="big/example0000185.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.34,412.41" z_order="0">
+    </points>
+  </image>
+  <image id="186" name="big/example0000186.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.76,404.70" z_order="0">
+    </points>
+  </image>
+  <image id="187" name="big/example0000187.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.22,369.77" z_order="0">
+    </points>
+  </image>
+  <image id="188" name="big/example0000188.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.30,353.14" z_order="0">
+    </points>
+  </image>
+  <image id="189" name="big/example0000189.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.51,402.97" z_order="0">
+    </points>
+  </image>
+  <image id="190" name="big/example0000190.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.53,412.60" z_order="0">
+    </points>
+  </image>
+  <image id="191" name="big/example0000191.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.89,375.21" z_order="0">
+    </points>
+  </image>
+  <image id="192" name="big/example0000192.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.40,372.10" z_order="0">
+    </points>
+  </image>
+  <image id="193" name="big/example0000193.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.92,362.33" z_order="0">
+    </points>
+  </image>
+  <image id="194" name="big/example0000194.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.30,374.14" z_order="0">
+    </points>
+  </image>
+  <image id="195" name="big/example0000195.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.84,401.25" z_order="0">
+    </points>
+  </image>
+  <image id="196" name="big/example0000196.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.32,395.66" z_order="0">
+    </points>
+  </image>
+  <image id="197" name="big/example0000197.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.65,347.40" z_order="0">
+    </points>
+  </image>
+  <image id="198" name="big/example0000198.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.81,365.33" z_order="0">
+    </points>
+  </image>
+  <image id="199" name="big/example0000199.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.37,354.07" z_order="0">
+    </points>
+  </image>
+  <image id="200" name="big/example0000200.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.72,301.83" z_order="0">
+    </points>
+  </image>
+  <image id="201" name="big/example0000201.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.65,300.38" z_order="0">
+    </points>
+  </image>
+  <image id="202" name="big/example0000202.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.16,298.24" z_order="0">
+    </points>
+  </image>
+  <image id="203" name="big/example0000203.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.40,305.66" z_order="0">
+    </points>
+  </image>
+  <image id="204" name="big/example0000204.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.03,306.39" z_order="0">
+    </points>
+  </image>
+  <image id="205" name="big/example0000205.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.13,297.73" z_order="0">
+    </points>
+  </image>
+  <image id="206" name="big/example0000206.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="62.45,306.85" z_order="0">
+    </points>
+  </image>
+  <image id="207" name="big/example0000207.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="62.25,306.54" z_order="0">
+    </points>
+  </image>
+  <image id="208" name="big/example0000208.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.28,298.04" z_order="0">
+    </points>
+  </image>
+  <image id="209" name="big/example0000209.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.85,303.45" z_order="0">
+    </points>
+  </image>
+  <image id="210" name="big/example0000210.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.41,300.91" z_order="0">
+    </points>
+  </image>
+  <image id="211" name="big/example0000211.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.52,294.57" z_order="0">
+    </points>
+  </image>
+  <image id="212" name="big/example0000212.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.34,305.43" z_order="0">
+    </points>
+  </image>
+  <image id="213" name="big/example0000213.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.07,300.10" z_order="0">
+    </points>
+  </image>
+  <image id="214" name="big/example0000214.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.97,304.50" z_order="0">
+    </points>
+  </image>
+  <image id="215" name="big/example0000215.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.03,299.51" z_order="0">
+    </points>
+  </image>
+  <image id="216" name="big/example0000216.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.64,306.03" z_order="0">
+    </points>
+  </image>
+  <image id="217" name="big/example0000217.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.07,296.69" z_order="0">
+    </points>
+  </image>
+  <image id="218" name="big/example0000218.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.76,302.12" z_order="0">
+    </points>
+  </image>
+  <image id="219" name="big/example0000219.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.10,300.60" z_order="0">
+    </points>
+  </image>
+  <image id="220" name="big/example0000220.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.20,357.20" z_order="0">
+    </points>
+  </image>
+  <image id="221" name="big/example0000221.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.20,349.40" z_order="0">
+    </points>
+  </image>
+  <image id="222" name="big/example0000222.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.50,357.00" z_order="0">
+    </points>
+  </image>
+  <image id="223" name="big/example0000223.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.10,348.20" z_order="0">
+    </points>
+  </image>
+  <image id="224" name="big/example0000224.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.30,358.30" z_order="0">
+    </points>
+  </image>
+  <image id="225" name="big/example0000225.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.10,351.70" z_order="0">
+    </points>
+  </image>
+  <image id="226" name="big/example0000226.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.30,355.00" z_order="0">
+    </points>
+  </image>
+  <image id="227" name="big/example0000227.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.60,349.70" z_order="0">
+    </points>
+  </image>
+  <image id="228" name="big/example0000228.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.70,348.80" z_order="0">
+    </points>
+  </image>
+  <image id="229" name="big/example0000229.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.36,354.57" z_order="0">
+    </points>
+  </image>
+  <image id="230" name="big/example0000230.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.90,359.50" z_order="0">
+    </points>
+  </image>
+  <image id="231" name="big/example0000231.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.70,348.60" z_order="0">
+    </points>
+  </image>
+  <image id="232" name="big/example0000232.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.20,357.00" z_order="0">
+    </points>
+  </image>
+  <image id="233" name="big/example0000233.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.73,352.16" z_order="0">
+    </points>
+  </image>
+  <image id="234" name="big/example0000234.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.20,357.80" z_order="0">
+    </points>
+  </image>
+  <image id="235" name="big/example0000235.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.80,348.60" z_order="0">
+    </points>
+  </image>
+  <image id="236" name="big/example0000236.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.50,348.30" z_order="0">
+    </points>
+  </image>
+  <image id="237" name="big/example0000237.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.47,353.57" z_order="0">
+    </points>
+  </image>
+  <image id="238" name="big/example0000238.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.92,349.41" z_order="0">
+    </points>
+  </image>
+  <image id="239" name="big/example0000239.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.52,357.89" z_order="0">
+    </points>
+  </image>
+  <image id="240" name="big/example0000240.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.95,135.78" z_order="0">
+    </points>
+  </image>
+  <image id="241" name="big/example0000241.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.01,134.14" z_order="0">
+    </points>
+  </image>
+  <image id="242" name="big/example0000242.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.18,135.18" z_order="0">
+    </points>
+  </image>
+  <image id="243" name="big/example0000243.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.33,134.54" z_order="0">
+    </points>
+  </image>
+  <image id="244" name="big/example0000244.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.80,135.20" z_order="0">
+    </points>
+  </image>
+  <image id="245" name="big/example0000245.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.20,135.43" z_order="0">
+    </points>
+  </image>
+  <image id="246" name="big/example0000246.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.04,133.52" z_order="0">
+    </points>
+  </image>
+  <image id="247" name="big/example0000247.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.88,135.12" z_order="0">
+    </points>
+  </image>
+  <image id="248" name="big/example0000248.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.92,134.86" z_order="0">
+    </points>
+  </image>
+  <image id="249" name="big/example0000249.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.32,135.44" z_order="0">
+    </points>
+  </image>
+  <image id="250" name="big/example0000250.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.09,135.18" z_order="0">
+    </points>
+  </image>
+  <image id="251" name="big/example0000251.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.10,134.10" z_order="0">
+    </points>
+  </image>
+  <image id="252" name="big/example0000252.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.95,133.77" z_order="0">
+    </points>
+  </image>
+  <image id="253" name="big/example0000253.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.52,133.22" z_order="0">
+    </points>
+  </image>
+  <image id="254" name="big/example0000254.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.96,134.35" z_order="0">
+    </points>
+  </image>
+  <image id="255" name="big/example0000255.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.80,135.20" z_order="0">
+    </points>
+  </image>
+  <image id="256" name="big/example0000256.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.11,134.95" z_order="0">
+    </points>
+  </image>
+  <image id="257" name="big/example0000257.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.80,134.50" z_order="0">
+    </points>
+  </image>
+  <image id="258" name="big/example0000258.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.51,134.98" z_order="0">
+    </points>
+  </image>
+  <image id="259" name="big/example0000259.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.92,135.22" z_order="0">
+    </points>
+  </image>
+  <image id="260" name="big/example0000260.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.88,197.20" z_order="0">
+    </points>
+  </image>
+  <image id="261" name="big/example0000261.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.17,197.02" z_order="0">
+    </points>
+  </image>
+  <image id="262" name="big/example0000262.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.85,196.90" z_order="0">
+    </points>
+  </image>
+  <image id="263" name="big/example0000263.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.67,197.24" z_order="0">
+    </points>
+  </image>
+  <image id="264" name="big/example0000264.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.80,197.80" z_order="0">
+    </points>
+  </image>
+  <image id="265" name="big/example0000265.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.38,197.10" z_order="0">
+    </points>
+  </image>
+  <image id="266" name="big/example0000266.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.49,196.82" z_order="0">
+    </points>
+  </image>
+  <image id="267" name="big/example0000267.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.85,196.60" z_order="0">
+    </points>
+  </image>
+  <image id="268" name="big/example0000268.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.92,196.64" z_order="0">
+    </points>
+  </image>
+  <image id="269" name="big/example0000269.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.30,197.40" z_order="0">
+    </points>
+  </image>
+  <image id="270" name="big/example0000270.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.58,197.24" z_order="0">
+    </points>
+  </image>
+  <image id="271" name="big/example0000271.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.48,197.36" z_order="0">
+    </points>
+  </image>
+  <image id="272" name="big/example0000272.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.37,197.53" z_order="0">
+    </points>
+  </image>
+  <image id="273" name="big/example0000273.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.69,196.96" z_order="0">
+    </points>
+  </image>
+  <image id="274" name="big/example0000274.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.91,196.74" z_order="0">
+    </points>
+  </image>
+  <image id="275" name="big/example0000275.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.80,196.70" z_order="0">
+    </points>
+  </image>
+  <image id="276" name="big/example0000276.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.86,197.31" z_order="0">
+    </points>
+  </image>
+  <image id="277" name="big/example0000277.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.64,197.23" z_order="0">
+    </points>
+  </image>
+  <image id="278" name="big/example0000278.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="44.47,197.19" z_order="0">
+    </points>
+  </image>
+  <image id="279" name="big/example0000279.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.80,197.40" z_order="0">
+    </points>
+  </image>
+  <image id="280" name="big/example0000280.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.00,338.48" z_order="0">
+    </points>
+  </image>
+  <image id="281" name="big/example0000281.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.30,335.50" z_order="0">
+    </points>
+  </image>
+  <image id="282" name="big/example0000282.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.20,358.18" z_order="0">
+    </points>
+  </image>
+  <image id="283" name="big/example0000283.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.93,339.23" z_order="0">
+    </points>
+  </image>
+  <image id="284" name="big/example0000284.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.12,378.87" z_order="0">
+    </points>
+  </image>
+  <image id="285" name="big/example0000285.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.93,368.18" z_order="0">
+    </points>
+  </image>
+  <image id="286" name="big/example0000286.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.98,325.21" z_order="0">
+    </points>
+  </image>
+  <image id="287" name="big/example0000287.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.60,394.20" z_order="0">
+    </points>
+  </image>
+  <image id="288" name="big/example0000288.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.32,353.01" z_order="0">
+    </points>
+  </image>
+  <image id="289" name="big/example0000289.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.53,363.03" z_order="0">
+    </points>
+  </image>
+  <image id="290" name="big/example0000290.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.80,365.28" z_order="0">
+    </points>
+  </image>
+  <image id="291" name="big/example0000291.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.87,386.50" z_order="0">
+    </points>
+  </image>
+  <image id="292" name="big/example0000292.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.48,326.85" z_order="0">
+    </points>
+  </image>
+  <image id="293" name="big/example0000293.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.85,367.40" z_order="0">
+    </points>
+  </image>
+  <image id="294" name="big/example0000294.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.48,391.88" z_order="0">
+    </points>
+  </image>
+  <image id="295" name="big/example0000295.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.12,374.05" z_order="0">
+    </points>
+  </image>
+  <image id="296" name="big/example0000296.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.30,352.65" z_order="0">
+    </points>
+  </image>
+  <image id="297" name="big/example0000297.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.45,380.89" z_order="0">
+    </points>
+  </image>
+  <image id="298" name="big/example0000298.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.47,381.22" z_order="0">
+    </points>
+  </image>
+  <image id="299" name="big/example0000299.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.52,396.95" z_order="0">
+    </points>
+  </image>
+  <image id="300" name="big/example0000300.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.40,337.11" z_order="0">
+    </points>
+  </image>
+  <image id="301" name="big/example0000301.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.90,321.50" z_order="0">
+    </points>
+  </image>
+  <image id="302" name="big/example0000302.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.17,317.95" z_order="0">
+    </points>
+  </image>
+  <image id="303" name="big/example0000303.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="60.55,336.83" z_order="0">
+    </points>
+  </image>
+  <image id="304" name="big/example0000304.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.47,337.08" z_order="0">
+    </points>
+  </image>
+  <image id="305" name="big/example0000305.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.53,320.57" z_order="0">
+    </points>
+  </image>
+  <image id="306" name="big/example0000306.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.73,360.20" z_order="0">
+    </points>
+  </image>
+  <image id="307" name="big/example0000307.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.21,349.08" z_order="0">
+    </points>
+  </image>
+  <image id="308" name="big/example0000308.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.72,354.00" z_order="0">
+    </points>
+  </image>
+  <image id="309" name="big/example0000309.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.76,352.13" z_order="0">
+    </points>
+  </image>
+  <image id="310" name="big/example0000310.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.11,327.61" z_order="0">
+    </points>
+  </image>
+  <image id="311" name="big/example0000311.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.21,347.47" z_order="0">
+    </points>
+  </image>
+  <image id="312" name="big/example0000312.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.47,334.26" z_order="0">
+    </points>
+  </image>
+  <image id="313" name="big/example0000313.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.80,344.00" z_order="0">
+    </points>
+  </image>
+  <image id="314" name="big/example0000314.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="61.58,336.46" z_order="0">
+    </points>
+  </image>
+  <image id="315" name="big/example0000315.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.88,325.10" z_order="0">
+    </points>
+  </image>
+  <image id="316" name="big/example0000316.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.39,334.31" z_order="0">
+    </points>
+  </image>
+  <image id="317" name="big/example0000317.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="58.30,359.60" z_order="0">
+    </points>
+  </image>
+  <image id="318" name="big/example0000318.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.62,336.84" z_order="0">
+    </points>
+  </image>
+  <image id="319" name="big/example0000319.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="59.27,344.14" z_order="0">
+    </points>
+  </image>
+  <image id="320" name="big/example0000320.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="38.10,307.86" z_order="0">
+    </points>
+  </image>
+  <image id="321" name="big/example0000321.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.38,310.22" z_order="0">
+    </points>
+  </image>
+  <image id="322" name="big/example0000322.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="33.96,302.10" z_order="0">
+    </points>
+  </image>
+  <image id="323" name="big/example0000323.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="40.45,306.88" z_order="0">
+    </points>
+  </image>
+  <image id="324" name="big/example0000324.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="38.45,308.70" z_order="0">
+    </points>
+  </image>
+  <image id="325" name="big/example0000325.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="55.67,302.51" z_order="0">
+    </points>
+  </image>
+  <image id="326" name="big/example0000326.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="41.88,311.42" z_order="0">
+    </points>
+  </image>
+  <image id="327" name="big/example0000327.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="31.70,311.87" z_order="0">
+    </points>
+  </image>
+  <image id="328" name="big/example0000328.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.42,313.33" z_order="0">
+    </points>
+  </image>
+  <image id="329" name="big/example0000329.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="33.10,301.10" z_order="0">
+    </points>
+  </image>
+  <image id="330" name="big/example0000330.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="31.82,311.96" z_order="0">
+    </points>
+  </image>
+  <image id="331" name="big/example0000331.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.80,306.01" z_order="0">
+    </points>
+  </image>
+  <image id="332" name="big/example0000332.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="52.49,309.60" z_order="0">
+    </points>
+  </image>
+  <image id="333" name="big/example0000333.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="56.04,313.28" z_order="0">
+    </points>
+  </image>
+  <image id="334" name="big/example0000334.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.34,301.13" z_order="0">
+    </points>
+  </image>
+  <image id="335" name="big/example0000335.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="56.60,313.50" z_order="0">
+    </points>
+  </image>
+  <image id="336" name="big/example0000336.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="31.33,312.16" z_order="0">
+    </points>
+  </image>
+  <image id="337" name="big/example0000337.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.10,309.30" z_order="0">
+    </points>
+  </image>
+  <image id="338" name="big/example0000338.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="39.40,311.30" z_order="0">
+    </points>
+  </image>
+  <image id="339" name="big/example0000339.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="42.36,310.62" z_order="0">
+    </points>
+  </image>
+  <image id="340" name="big/example0000340.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.30,351.26" z_order="0">
+    </points>
+  </image>
+  <image id="341" name="big/example0000341.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.42,349.62" z_order="0">
+    </points>
+  </image>
+  <image id="342" name="big/example0000342.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="62.50,389.42" z_order="0">
+    </points>
+  </image>
+  <image id="343" name="big/example0000343.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="47.17,370.26" z_order="0">
+    </points>
+  </image>
+  <image id="344" name="big/example0000344.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="63.44,390.39" z_order="0">
+    </points>
+  </image>
+  <image id="345" name="big/example0000345.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.30,351.26" z_order="0">
+    </points>
+  </image>
+  <image id="346" name="big/example0000346.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="63.48,390.31" z_order="0">
+    </points>
+  </image>
+  <image id="347" name="big/example0000347.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.86,350.88" z_order="0">
+    </points>
+  </image>
+  <image id="348" name="big/example0000348.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.92,387.28" z_order="0">
+    </points>
+  </image>
+  <image id="349" name="big/example0000349.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.32,326.61" z_order="0">
+    </points>
+  </image>
+  <image id="350" name="big/example0000350.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.59,312.52" z_order="0">
+    </points>
+  </image>
+  <image id="351" name="big/example0000351.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.85,311.72" z_order="0">
+    </points>
+  </image>
+  <image id="352" name="big/example0000352.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.75,375.84" z_order="0">
+    </points>
+  </image>
+  <image id="353" name="big/example0000353.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.26,325.79" z_order="0">
+    </points>
+  </image>
+  <image id="354" name="big/example0000354.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="49.61,321.18" z_order="0">
+    </points>
+  </image>
+  <image id="355" name="big/example0000355.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.76,355.86" z_order="0">
+    </points>
+  </image>
+  <image id="356" name="big/example0000356.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.87,331.70" z_order="0">
+    </points>
+  </image>
+  <image id="357" name="big/example0000357.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="36.88,336.73" z_order="0">
+    </points>
+  </image>
+  <image id="358" name="big/example0000358.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.47,317.99" z_order="0">
+    </points>
+  </image>
+  <image id="359" name="big/example0000359.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="37.24,333.63" z_order="0">
+    </points>
+  </image>
+  <image id="360" name="big/example0000360.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="66.48,373.63" z_order="0">
+    </points>
+  </image>
+  <image id="361" name="big/example0000361.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="66.25,412.73" z_order="0">
+    </points>
+  </image>
+  <image id="362" name="big/example0000362.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="46.34,374.49" z_order="0">
+    </points>
+  </image>
+  <image id="363" name="big/example0000363.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="55.79,377.35" z_order="0">
+    </points>
+  </image>
+  <image id="364" name="big/example0000364.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="69.78,348.95" z_order="0">
+    </points>
+  </image>
+  <image id="365" name="big/example0000365.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="45.35,423.74" z_order="0">
+    </points>
+  </image>
+  <image id="366" name="big/example0000366.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="70.93,341.40" z_order="0">
+    </points>
+  </image>
+  <image id="367" name="big/example0000367.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="43.03,432.53" z_order="0">
+    </points>
+  </image>
+  <image id="368" name="big/example0000368.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="65.06,424.58" z_order="0">
+    </points>
+  </image>
+  <image id="369" name="big/example0000369.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="65.97,369.22" z_order="0">
+    </points>
+  </image>
+  <image id="370" name="big/example0000370.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="62.30,365.60" z_order="0">
+    </points>
+  </image>
+  <image id="371" name="big/example0000371.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="69.69,339.80" z_order="0">
+    </points>
+  </image>
+  <image id="372" name="big/example0000372.png" width="100" height="600">
+    <points label="MeniscusCenter" source="manual" occluded="0" points="57.46,362.20" z_order="0">
+    </points>
+  </image>
+</annotations>
