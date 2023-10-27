@@ -103,9 +103,12 @@ The neural network responsible for locating nectar meniscuses is in a compressed
 The neural network responsible for locating the proboscis tips is in a compressed archive in the file (WIP).
 
 ## Important Scripts
-* aggregate_figures.py - used to generate figures from the data in meniscus_measurements.json and (WIP)
-* (WIP) - used to measure the meniscus position from video data
-* (WIP) - used to measure the proboscis tip position from video data
+* `aggregate_figures.py` - used to generate figures from the data in meniscus_measurements.json and proboscis_measurements3-net.json
+* `use_meniscus_finder_to_track.py` - used to measure the meniscus position from video data using the neural network in meniscus_utils/meniscus_track_4 which outputs into meniscus_measurements.json
+* `proboscis_extraction_with_sigmoid_activation.py` - used to measure the proboscis tip position from video data using the neural network in probosics_utils/proboscis_model_b7 which outputs into proboscis_measurements3-net.json
+* contents of folder meniscus_utils are used to train the meniscus focused neural network
+* contents of folder proboscis_utils are used to train the proboscis focused neural network
+* contents of folder
 
 ## How to use
 Install. Acquire data in CINE format and put it in a data2/ directory inside the cloned repository. Run (WIP) to get measurements of meniscus position in (WIP). Run (WIP) to get measurements of proboscis tip position in (WIP). Run the aggregate_figures.py script to show visualizations of data including drinking rates and proboscis submergence. 
