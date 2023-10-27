@@ -8,9 +8,9 @@ submersion depth"
 * evaluate whether nectar ingestion rate and proboscis submergence are related
 
 ## Data and Artifacts
-List of 
+List of video file names, spreadsheets with metadata about posture, units, and nectar mass ingestion, where to find measurements extracted by neural nets, and where to find neural networks.
 
-### Videos, metadata
+### Videos
 For space reasons the raw video data is not included in the repository. It would be stored in a data2/ folder and the following list of filenames would be included. Division into subfolders is related to earlier revisions of the software and not reflective of present design constraints. It is also the case that the data/ subfolder contains duplicates. Video data is in CINE format.
 * moth22_2022-01-26.cine
 * moth22_2022-01-31_Cine1.cine
@@ -95,20 +95,22 @@ For space reasons the raw video data is not included in the repository. It would
 * data/moth26_2022-02-25_Cine2.cine
 
 ### Extracted Frame Measurements
-Measurements of traits extracted by neural networks are present in the meniscus_measurements.json and (WIP) files.
-The schema followed in meniscus_measurements.json is (WIP). The schema followed in (WIP) is (WIP).
+Measurements of traits extracted by neural networks are present in the meniscus_measurements.json and proboscis_measurement3-net.json files.
+The schema followed in meniscus_measurements.json is that of a dictionary between filenames as keys and values of lists of lists of measurements where each sublist contains the frame number, coordinates, and several morphological measurements. The schema followed in proboscis_measurement3-net.json is similar. Note that both of these files may include multiple object measurements, and rules implemented in aggregate_figures.py are how a selection is made on what to consider a meniscus or a proboscis tip.
+
+### Metadata
+Information about ingested nectar mass is in the spreadsheet file max_intake_possible_by_recording.csv. Information about the posture of moths in recordings is in the spreadsheet file postures.ods. Information about pixel to distance and volume conversions is in the spreadsheet file unit_convert_table.csv.
 
 ### Neural Networks
-The neural network responsible for locating nectar meniscuses is in a compressed archive in the file (WIP).
-The neural network responsible for locating the proboscis tips is in a compressed archive in the file (WIP).
+The neural network responsible for locating nectar meniscuses is in a compressed archive folder named meniscus_track_4.
+The neural network responsible for locating the proboscis tips is in a compressed archive folder named proboscis_model_b7.
 
 ## Important Scripts
 * `aggregate_figures.py` - used to generate figures from the data in meniscus_measurements.json and proboscis_measurements3-net.json
 * `use_meniscus_finder_to_track.py` - used to measure the meniscus position from video data using the neural network in meniscus_utils/meniscus_track_4 which outputs into meniscus_measurements.json
 * `proboscis_extraction_with_sigmoid_activation.py` - used to measure the proboscis tip position from video data using the neural network in probosics_utils/proboscis_model_b7 which outputs into proboscis_measurements3-net.json
-* contents of folder meniscus_utils are used to train the meniscus focused neural network
-* contents of folder proboscis_utils are used to train the proboscis focused neural network
-* contents of folder
+* contents of folder meniscus_utils are used to train and test the meniscus focused neural network
+* contents of folder proboscis_utils are used to train and test the proboscis focused neural network
 
 ## How to use
 Install. Acquire data in CINE format and put it in a data2/ directory inside the cloned repository. Run (WIP) to get measurements of meniscus position in (WIP). Run (WIP) to get measurements of proboscis tip position in (WIP). Run the aggregate_figures.py script to show visualizations of data including drinking rates and proboscis submergence. 
