@@ -42,7 +42,7 @@ class UnitConversion:
                 row = self.table.iloc[i]
                 if pandas.isnull(row[attrib]):
                     warnings.warn("Video-specific scale not available, using average scale", Warning)
-                    return self.table.vol_scale.mean()
+                    return self.table[attrib].mean()
                 else:
                     return row[attrib]
         

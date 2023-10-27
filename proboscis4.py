@@ -90,7 +90,7 @@ def predict_batch(batch, p_model, thresh=0.1):
 
 def measure_proboscis_position(videoname):
     #main()
-    prob_model = keras.models.load_model('proboscis_utils/proboscis_model_b1')
+    prob_model = keras.models.load_model('proboscis_utils/proboscis_model_b3')
     video = Cine(videoname)
     m = video.get_video_median()
     median_img = tube2.tube_crop1(m)
