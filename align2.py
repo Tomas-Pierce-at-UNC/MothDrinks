@@ -18,7 +18,6 @@ class SiftAligner:
     def __init__(self, reference):
         "Creates an aligner that will align images to a reference image"
         self.reference = exposure.equalize_adapthist(reference)
-        self.reference = reference
         self.de = feature.SIFT(n_octaves=4)
 
         self.de.detect_and_extract(self.reference)
@@ -45,7 +44,7 @@ class SiftAligner:
         transform_robust, inliers = measure.ransac(
             (ref_matches, matches),
             transform.EuclideanTransform,
-            min_samples=5,
+            min_samples=4,
             residual_threshold=0.5,
             max_trials=250
             )
@@ -57,10 +56,10 @@ class SiftAligner:
             )
         return robust
     
-    def apply_transform(self, target, transform):
+    def apply_transform(self, target, my_transform):
         "Applies the given transform to the target"
         warped = transform.warp(target,
-                                transform.inverse,
+                                my_transform.inverse,
                                 order=1,
                                 mode="constant",
                                 cval=0,

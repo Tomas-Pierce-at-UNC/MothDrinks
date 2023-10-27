@@ -13,7 +13,7 @@ import itertools
 
 BATCH = 8
 
-model = keras.models.load_model("proboscis_utils/proboscis_model_b3")
+model = keras.models.load_model("proboscis_utils/proboscis_model_b7")
 
 def get_batch(video, idx):
     zone = []
@@ -28,6 +28,7 @@ def get_batch(video, idx):
 vids = glob.glob("data2/**/*.cine", recursive=True)
 
 videos = {}
+videos2 = {}
 
 for vname in vids:
     print(vname)
@@ -39,6 +40,7 @@ for vname in vids:
         #skio.show()
         aligner = align2.SiftAligner(medtube)
         proboscis_pos = []
+        proboscis_pos2 = []
         for i in range(0, video.image_count - BATCH, BATCH):
             try:
                 batch = get_batch(video, i)
@@ -72,23 +74,53 @@ for vname in vids:
                 rprops = measure.regionprops(labeled, p_vals[j,:,:,0])
                 difprops = measure.regionprops(labeled, dif)
                 labelnames = np.unique(labeled)
-                pairs = filter(lambda pair: pair[0].label == pair[1].label, itertools.product(rprops, difprops))
-                below = filter(lambda pair : pair[1].intensity_mean < 0, pairs)
-                proboscis, _p_zone = max(below, key=lambda pair : pair[0].bbox[2], default=(None, None))
-                #proboscis = max(rprops, key=lambda reg : reg.centroid[0], default=None)
-                if proboscis is not None:
-                    proboscis_pos.append((i + j, # 0
-                    *proboscis.centroid, # 1 2
-                    float(proboscis.eccentricity), # 3 
-                    float(proboscis.orientation), # 4
-                    float(proboscis.intensity_mean), # 5
-                    float(proboscis.intensity_max), # 6
-                    float(proboscis.intensity_min), # 7
-                    *proboscis.bbox, # 8 9 10 11 # minrow, mincol, maxrow, maxcol
-                    float(proboscis.major_axis_length), # 12
-                    #proboscis.area
-                    ))
+                # pairs = filter(lambda pair: pair[0].label == pair[1].label, itertools.product(rprops, difprops))
+                # below = filter(lambda pair : pair[1].intensity_mean < 0, pairs)
+##                proboscis, _p_zone = max(below, key=lambda pair : pair[0].bbox[2], default=(None, None))
+##                #proboscis = max(rprops, key=lambda reg : reg.centroid[0], default=None)
+##                if proboscis is not None:
+##                    proboscis_pos.append((i + j, # 0
+##                    *proboscis.centroid, # 1 2
+##                    float(proboscis.eccentricity), # 3 
+##                    float(proboscis.orientation), # 4
+##                    float(proboscis.intensity_mean), # 5
+##                    float(proboscis.intensity_max), # 6
+##                    float(proboscis.intensity_min), # 7
+##                    *proboscis.bbox, # 8 9 10 11 # minrow, mincol, maxrow, maxcol
+##                    float(proboscis.major_axis_length), # 12
+##                    #proboscis.area
+##                    ))
+                for rprop in rprops:
+                    mmt = (i+j,
+                           *rprop.centroid,
+                           rprop.eccentricity,
+                           rprop.orientation,
+                           float(rprop.intensity_mean),
+                           float(rprop.intensity_max),
+                           float(rprop.intensity_min),
+                           *rprop.bbox,
+                           rprop.major_axis_length,
+                           rprop.area
+                           )
+                    if i == 0:
+                        with open("ignore_test.json", "w") as _test:
+                            json.dump(mmt, _test)
+                    proboscis_pos.append(mmt)
+                for dprop in difprops:
+                    mmt = (i+j,
+                           *dprop.centroid,
+                           dprop.eccentricity,
+                           dprop.orientation,
+                           float(dprop.intensity_mean),
+                           float(dprop.intensity_max),
+                           float(dprop.intensity_min),
+                           *dprop.bbox,
+                           dprop.axis_major_length,
+                           dprop.area
+                           )
+                    proboscis_pos2.append(mmt)
         videos[vname] = proboscis_pos
+        videos2[vname] = proboscis_pos2
     except Exception as e:
         with open("log.log", "a") as log:
             log.write(f"failure regarding {vname}: {e}")
@@ -96,5 +128,8 @@ for vname in vids:
     finally:
         video.close()
 
-with open("proboscis_measurements.json", "w") as mm:
+with open("proboscis_measurements3-net.json", "w") as mm:
     json.dump(videos, mm)
+
+with open("proboscis_measurements3-cls.json", "w") as m2:
+    json.dump(videos2, m2)
