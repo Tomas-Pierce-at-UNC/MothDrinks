@@ -10,7 +10,7 @@ submersion depth"
 ## Data and Artifacts
 List of 
 
-### Videos
+### Videos, metadata
 For space reasons the raw video data is not included in the repository. It would be stored in a data2/ folder and the following list of filenames would be included. Division into subfolders is related to earlier revisions of the software and not reflective of present design constraints. It is also the case that the data/ subfolder contains duplicates. Video data is in CINE format.
 * moth22_2022-01-26.cine
 * moth22_2022-01-31_Cine1.cine
