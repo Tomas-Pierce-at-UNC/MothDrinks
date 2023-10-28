@@ -122,7 +122,7 @@ Download and install all dependencies. Clone the repository and extract the neur
 ## Dependencies
 You will want to have the stable channel Rust compiler, the Python 3.10 interpreter, and pip intalled. Having gcc installed may be useful as well.
 There should be a requirements.txt file specifying which packages to install, however the direct dependencies are:
-pandas, numpy, matplotlib, tensorflow, loess, scikit-image, scikit-learn. CUDA-compatible hardware is recommended.
+pandas, numpy, matplotlib, tensorflow, loess, scikit-image, scikit-learn, scipy. CUDA-compatible hardware is recommended.
 
 ## Notes
 Formatting video file names in the format of moth<id>_<date>_Cine<number>.cine is likely to increase the chance of the code working correctly.
