@@ -50,6 +50,8 @@ mod histogram;
 
 mod header;
 
+mod setup_util;
+
 use header::VideoHeaders;
 use histogram::Histogram;
 
@@ -95,6 +97,12 @@ pub unsafe extern "C" fn read_frame_interop(fd: i32, offset: u64) -> *const u8 {
         }
     }
 }
+
+#[no_mangle]
+pub unsafe extern "C" fn liberate_frame(frame :*mut u8, size :u64) {
+    let _vector :Vec<u8> = Vec::from_raw_parts(frame, size as usize, size as usize);
+}
+
 
 #[no_mangle]
 pub unsafe extern "C" fn restricted_video_median(
@@ -273,7 +281,18 @@ pub unsafe extern "C" fn image_count(fd :i32) -> u32 {
         }
     };
 
-    let out = chead.image_count() as u32;
+    let out = chead.image_count();
+    mem::forget(file);
+    out
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn frame_rate(fd :i32) -> u16 {
+    let mut file = fs::File::from_raw_fd(fd);
+    let out = match setup_util::get_framerate(&mut file) {
+        Some(f) => f,
+        None => 0,
+    };
     mem::forget(file);
     out
 }

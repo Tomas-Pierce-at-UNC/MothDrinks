@@ -60,7 +60,9 @@ def handle_meniscus_array(mtable: list):
     subtable = table[labels == 1]
     #subtable = table[labels == 1]
     #subtable = table
-    predx, predy, predw = loess_1d.loess_1d(subtable[:, 0], subtable[:, 1])
+    predx, predy, predw = loess_1d.loess_1d(subtable[:, 0], subtable[:, 1],
+                                            degree=1,
+                                            frac=0.5)
     px_difs = numpy.diff(predx)
     py_difs = numpy.diff(predy)
     l_deriv = py_difs / px_difs
